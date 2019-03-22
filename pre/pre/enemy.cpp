@@ -24,6 +24,7 @@
 #define	VIEW_ASPECT		((float)SCREEN_WIDTH / (float)SCREEN_HEIGHT)	// ビュー平面のアスペクト比	
 #define	ENEMY_MOVE		(3.0f)											// 移動量
 #define	ENEMY_ROTATE	(D3DX_PI * 0.02f)								// 回転量
+#define ENEMY_LOST_Y	(-200.0f)
 
 #define ENEMY_LABEL	"Enemy"
 //*****************************************************************************
@@ -306,7 +307,7 @@ void EnemyBlow(void)
 				}
 			}
 		}
-		if (enemy->posEnemy.y < 0.0f)
+		if (enemy->posEnemy.y < ENEMY_LOST_Y)
 		{
 			enemy->blown = false;
 			enemy->bUse = false;
